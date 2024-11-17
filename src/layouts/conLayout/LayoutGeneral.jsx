@@ -1,10 +1,11 @@
 import React from "react";
+import Navbar from "../../components/Navbar";
 
 const LayoutGeneral = (props) => {
   const { children } = props;
   return (
     <>
-      <div>LayoutGeneral</div>
+      <Navbar/>
       <section>
         <div>{children}</div>
       </section>
