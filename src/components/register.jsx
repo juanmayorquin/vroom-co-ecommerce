@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth, db } from "./firebase";
+import { auth, db } from "../firebase/credentials";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
@@ -21,7 +21,7 @@ function Register() {
           email: user.email,
           firstName: fname,
           lastName: lname,
-          photo:""
+          photo: "",
         });
       }
       console.log("User Registered Successfully!!");
@@ -37,61 +37,81 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <h3>Sign Up</h3>
-
-      <div className="mb-3">
-        <label>First name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="First name"
-          onChange={(e) => setFname(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Last name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Last name"
-          onChange={(e) => setLname(e.target.value)}
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          placeholder="Enter email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Password</label>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-
-      <div className="d-grid">
-        <button type="submit" className="btn btn-primary">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+        <h3 className="text-center text-2xl font-semibold text-gray-700 mb-6">
           Sign Up
-        </button>
+        </h3>
+        <form onSubmit={handleRegister}>
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-1">
+              First name
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+              placeholder="First name"
+              onChange={(e) => setFname(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-1">
+              Last name
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+              placeholder="Last name"
+              onChange={(e) => setLname(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-1">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+              placeholder="Enter email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-medium mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+        <p className="text-sm text-gray-600 text-center">
+          Already registered?{" "}
+          <a href="/login" className="text-blue-500 hover:underline">
+            Login
+          </a>
+        </p>
       </div>
-      <p className="forgot-password text-right">
-        Already registered <a href="/login">Login</a>
-      </p>
-    </form>
+    </div>
   );
 }
+
 export default Register;
