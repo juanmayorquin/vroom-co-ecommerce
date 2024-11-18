@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { Menu, ShoppingCart, User , X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -21,18 +22,18 @@ const Navbar = () => {
               <a href="#new" className="hover:text-red-500 transition-colors">Novedades</a>
               <a href="#collections" className="hover:text-red-500 transition-colors">Colecciones</a>
               <a href="#racing" className="hover:text-red-500 transition-colors">Sobre nosotros</a>
-              <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
+              <Link to={"/login"} className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
                 <User className="h-6 w-6" />
-              </button>
+              </Link>
               <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
                 <ShoppingCart className="h-6 w-6" />
               </button>
             </div>
   
             <div className="md:hidden flex items-center space-x-4">
-            <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
+            <Link to={"/login"} className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
                 <User className="h-6 w-6" />
-              </button>
+              </Link>
               <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
                 <ShoppingCart className="h-6 w-6" />
               </button>
