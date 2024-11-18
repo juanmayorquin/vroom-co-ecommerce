@@ -43,9 +43,9 @@ const AppRouter = () => {
         path="/login" 
         element={
           <RutaPublica>
-            
+              <LayoutGeneral>
               <Login />
-          
+              </LayoutGeneral>
           </RutaPublica>
         }
       />
