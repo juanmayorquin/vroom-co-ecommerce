@@ -61,7 +61,7 @@ const Navbar = () => {
             <Link to="/colecciones" className="hover:text-red-500 transition-colors">
               Colecciones
             </Link>
-            <a href="#racing" className="hover:text-red-500 transition-colors">
+            <a href="/about" className="hover:text-red-500 transition-colors">
               Sobre nosotros
             </a>
             {userName ? (
