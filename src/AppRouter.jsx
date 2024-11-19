@@ -3,14 +3,14 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { RutaPublica } from "./routers";
 import { LayoutGeneral } from "./layouts/conLayout";
 import SinLayout from "./layouts/sinLayout/SinLayout";
-import { GeneralInicio, Pagina404, Login, Register, Perfil } from "./pages";
+import { GeneralInicio, Pagina404, Login, Register, Perfil, Colecciones } from "./pages";
 
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route 
-        path="/" 
+      <Route
+        path="/"
         element={
           <RutaPublica>
             <LayoutGeneral>
@@ -19,8 +19,8 @@ const AppRouter = () => {
           </RutaPublica>
         }
       />
-      <Route 
-        path="/shop" 
+      <Route
+        path="/shop"
         element={
           <RutaPublica>
             <LayoutGeneral>
@@ -29,8 +29,8 @@ const AppRouter = () => {
           </RutaPublica>
         }
       />
-      <Route 
-        path="/404" 
+      <Route
+        path="/404"
         element={
           <RutaPublica>
             <SinLayout>
@@ -39,45 +39,58 @@ const AppRouter = () => {
           </RutaPublica>
         }
       />
-      <Route 
-        path="/login" 
+      <Route
+        path="/login"
         element={
           <RutaPublica>
-              <LayoutGeneral>
+            <LayoutGeneral>
               <Login />
-              </LayoutGeneral>
+            </LayoutGeneral>
           </RutaPublica>
         }
 
-        
+
       />
-      <Route 
-        path="/register" 
+      <Route
+        path="/register"
         element={
           <RutaPublica>
-              <LayoutGeneral>
+            <LayoutGeneral>
               <Register />
-              </LayoutGeneral>
+            </LayoutGeneral>
           </RutaPublica>
         }
 
-        
+
       />
 
-<Route 
-        path="/perfil" 
+      <Route
+        path="/perfil"
         element={
           <RutaPublica>
-              <LayoutGeneral>
+            <LayoutGeneral>
               <Perfil />
-              </LayoutGeneral>
+            </LayoutGeneral>
           </RutaPublica>
         }
 
-        
+
       />
 
-      
+      <Route
+        path="/colecciones"
+        element={
+          <RutaPublica>
+            <LayoutGeneral>
+              <Colecciones />
+            </LayoutGeneral>
+          </RutaPublica>
+        }
+
+
+      />
+
+
       <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
   );

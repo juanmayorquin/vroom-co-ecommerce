@@ -57,9 +57,10 @@ const Navbar = () => {
             <a href="#new" className="hover:text-red-500 transition-colors">
               Novedades
             </a>
-            <a href="#collections" className="hover:text-red-500 transition-colors">
+
+            <Link to="/colecciones" className="hover:text-red-500 transition-colors">
               Colecciones
-            </a>
+            </Link>
             <a href="#racing" className="hover:text-red-500 transition-colors">
               Sobre nosotros
             </a>
