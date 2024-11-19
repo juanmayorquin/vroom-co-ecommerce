@@ -7,9 +7,8 @@ import { auth, db } from "../firebase/credentials";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [userName, setUserName] = useState(null); // Cambiado de "" a null para manejar el estado inicial
+  const [userName, setUserName] = useState(null);
 
-  // Monitorea el estado de autenticación
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
@@ -17,17 +16,17 @@ const Navbar = () => {
           const userDoc = await getDoc(doc(db, "Users", currentUser.uid));
           if (userDoc.exists()) {
             const userData = userDoc.data();
-            setUserName(userData.name || "Usuario"); // Si no hay nombre, muestra "Usuario"
+            setUserName(userData.name || "Usuario");
           } else {
             console.error("No se encontró el documento del usuario.");
-            setUserName("Usuario"); // Nombre genérico si no hay datos
+            setUserName("Usuario");
           }
         } catch (error) {
           console.error("Error al obtener el documento:", error.message);
           setUserName("Usuario");
         }
       } else {
-        setUserName(null); // Sin usuario autenticado
+        setUserName(null);
       }
     });
 
@@ -36,7 +35,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full bg-neutral-950/90 backdrop-blur-sm z-50 shadow-sm text-white">
-      <div className="max-w-7xl mx-auto md:max-w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <a href="/">
@@ -53,11 +52,11 @@ const Navbar = () => {
             </a>
           </div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#new" className="hover:text-red-500 transition-colors">
               Novedades
             </a>
-
             <Link to="/colecciones" className="hover:text-red-500 transition-colors">
               Colecciones
             </Link>
@@ -65,7 +64,6 @@ const Navbar = () => {
               Sobre nosotros
             </a>
             {userName ? (
-              // Si hay usuario autenticado, muestra "Hola, Usuario"
               <Link
                 to="/perfil"
                 className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md"
@@ -73,7 +71,6 @@ const Navbar = () => {
                 Hola, {userName}
               </Link>
             ) : (
-              // Si no hay usuario autenticado, muestra "Iniciar sesión"
               <Link
                 to="/login"
                 className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md"
@@ -86,6 +83,7 @@ const Navbar = () => {
             </button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center space-x-4">
             <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
               <ShoppingCart className="h-6 w-6" />
@@ -98,6 +96,45 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-2">
+            <a
+              href="#new"
+              className="block px-4 py-2 text-white hover:text-red-500 transition-colors"
+            >
+              Novedades
+            </a>
+            <Link
+              to="/colecciones"
+              className="block px-4 py-2 text-white hover:text-red-500 transition-colors"
+            >
+              Colecciones
+            </Link>
+            <a
+              href="/about"
+              className="block px-4 py-2 text-white hover:text-red-500 transition-colors"
+            >
+              Sobre nosotros
+            </a>
+            {userName ? (
+              <Link
+                to="/perfil"
+                className="block px-4 py-2 text-white hover:text-red-500 transition-colors"
+              >
+                Perfil
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="block px-4 py-2 text-white hover:text-red-500 transition-colors"
+              >
+                Iniciar sesión
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );
