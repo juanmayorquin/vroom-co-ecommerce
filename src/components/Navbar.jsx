@@ -147,6 +147,35 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="space-y-4 px-4 py-2">
+              <Link
+                to="/colecciones"
+                className="block text-white hover:text-red-500 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Colecciones
+              </Link>
+              <a
+                href="#new"
+                className="block text-white hover:text-red-500 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Novedades
+              </a>
+              <a
+                href="/about"
+                className="block text-white hover:text-red-500 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sobre nosotros
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
