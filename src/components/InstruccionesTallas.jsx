@@ -1,14 +1,14 @@
-    
+
 import React from 'react'
 
 const ComoTomarMedidas = () => {
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Cómo tomar las medidas</h2>
-      <p className="text-gray-600">
+      <h2 className="text-3xl font-semibold text-red-500 mb-4">Cómo tomar las medidas</h2>
+      <p className="text-black-600">
         Para asegurarte de elegir la talla correcta, sigue estas recomendaciones:
       </p>
-      <ul className="list-disc pl-5 text-gray-600">
+      <ul className="list-disc pl-5 text-blakc-600">
         <li>Mide tu pecho con una cinta métrica justo debajo de las axilas y sobre la parte más prominente del busto.</li>
         <li>Mide tu cintura en la parte más estrecha.</li>
         <li>Mide tus caderas en la parte más ancha, alrededor de las nalgas.</li>

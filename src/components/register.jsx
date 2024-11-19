@@ -2,7 +2,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth, db } from "../firebase/credentials";
 import { setDoc, doc } from "firebase/firestore";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"; // Importamos useNavigate
 
 function Register() {
@@ -10,10 +9,12 @@ function Register() {
   const [password, setPassword] = useState("");
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para errores
   const navigate = useNavigate(); // Usamos useNavigate
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setErrorMessage(""); // Reiniciar el mensaje de error
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
@@ -28,17 +29,25 @@ function Register() {
         });
       }
       console.log("¡Usuario registrado exitosamente!");
-      toast.success("¡Usuario registrado exitosamente!", {
-        position: "top-center",
-      });
 
       // Redirigir a la pantalla principal después de un registro exitoso
       navigate("/"); // Aquí redirigimos a la ruta principal "/"
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.message, {
-        position: "bottom-center",
-      });
+      console.log(error.code);
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          setErrorMessage("El correo electrónico ya está registrado.");
+          break;
+        case "auth/invalid-email":
+          setErrorMessage("El correo electrónico no es válido.");
+          break;
+        case "auth/weak-password":
+          setErrorMessage("La contraseña es demasiado débil. Usa al menos 6 caracteres.");
+          break;
+        default:
+          setErrorMessage("Ocurrió un error. Por favor, inténtalo nuevamente.");
+          break;
+      }
     }
   };
 
@@ -99,6 +108,13 @@ function Register() {
               required
             />
           </div>
+
+          {/* Mensaje de error */}
+          {errorMessage && (
+            <div className="mb-4 text-red-600 text-sm font-medium">
+              {errorMessage}
+            </div>
+          )}
 
           <div className="mb-4">
             <button

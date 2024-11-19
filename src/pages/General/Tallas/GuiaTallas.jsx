@@ -6,7 +6,7 @@ import TablaRopa from '../../../components/TablaRopa'
 
 const GuiaTallas = () => {
   return (
-<div className="max-w-4xl mx-auto p-8">
+<div className="pt-20 max-w-4xl mx-auto p-8">
   <ComoTomarMedidas />
   <TablaRopa />
 </div>

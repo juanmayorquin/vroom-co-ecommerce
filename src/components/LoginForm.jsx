@@ -1,28 +1,46 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase/credentials";
-import { toast } from "react-toastify";
 import SignInwithGoogle from "./SignInGoogle";
 import { Link } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para el mensaje de error
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage(""); // Reinicia el mensaje de error antes de intentar iniciar sesión
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Usuario ingresado exitosamente");
       window.location.href = "/";
-      toast.success("Usuario ingresado exitosamente", {
-        position: "top-center",
-      });
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.message, {
-        position: "bottom-center",
-      });
+      console.log(error.code);
+      switch (error.code) {
+        case "auth/user-not-found":
+          setErrorMessage("No se encontró un usuario con ese correo.");
+          break;
+        case "auth/wrong-password":
+          setErrorMessage("Contraseña incorrecta.");
+          break;
+        case "auth/invalid-email":
+          setErrorMessage("El correo electrónico no es válido.");
+          break;
+        case "auth/user-disabled":
+          setErrorMessage("La cuenta de usuario está deshabilitada.");
+          break;
+        case "auth/network-request-failed":
+          setErrorMessage("Error de red. Verifica tu conexión a Internet.");
+          break;
+        case "auth/invalid-credential":
+          setErrorMessage("Las credenciales proporcionadas no son válidas.");
+          break;
+        default:
+          setErrorMessage("Ocurrió un error. Por favor, inténtalo nuevamente.");
+          break;
+      }
     }
   };
 
@@ -58,6 +76,13 @@ function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+
+          {/* Mensaje de error */}
+          {errorMessage && (
+            <div className="mb-4 text-red-600 text-sm font-medium">
+              {errorMessage}
+            </div>
+          )}
 
           <div className="mb-4">
             <button
