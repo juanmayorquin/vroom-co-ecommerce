@@ -18,8 +18,8 @@ const Hero = () => {
           </span>
         </h1>
         <p className="text-gray-300 text-lg mb-8">
-          Explora nuestra nueva colección de streetwear urbano y lleva tu
-          pasión por el motorsport a las calles.
+          Explora nuestra nueva colección de streetwear urbano y lleva tu pasión
+          por el motorsport a las calles.
         </p>
         <Link
           to="/colecciones"
@@ -29,9 +29,18 @@ const Hero = () => {
           <ChevronRight className="ml-2 h-5 w-5" />
         </Link>
       </motion.div>
-      <div className="max-w-[80%] m-auto relative">
-        <img className="" src="/products/BMW-M1000RR-Negro-_Mockup.webp" alt="Camiseta de una BMW M1000RR Negra" />
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-[80%] m-auto relative"
+      >
+        <img
+          className=""
+          src="/products/BMW-M1000RR-Negro-_Mockup.webp"
+          alt="Camiseta de una BMW M1000RR Negra"
+        />
+      </motion.div>
     </div>
   );
 };

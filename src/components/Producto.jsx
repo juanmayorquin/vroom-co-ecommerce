@@ -1,16 +1,15 @@
 import React from "react";
 
-const Producto = ({ img, name, description, price }) => {
+const Producto = ({ img, name, price }) => {
   return (
-    <div className='border p-4 rounded-md shadow m-auto hover:shadow-lg transition duration-200 min-w-52 h-auto transform hover:scale-105'>
+    <div className='flex flex-col border p-4 rounded-md shadow m-auto hover:shadow-lg transition duration-200 max-w-72 transform hover:scale-105'>
       <img
         src={img}
         alt={name}
-        className="w-full h-40 object-cover mb-2 rounded"
-        style={{ height: "160px" }}
+        className="w-full object-cover mb-2 rounded"
       />
       <div>
-        <p className="text-lg font-semibold">${price}</p>
+        <p className="text-lg font-semibold text-red-600">${price}</p>
         <h3 className="font-light">{name}</h3>
       </div>
     </div>
