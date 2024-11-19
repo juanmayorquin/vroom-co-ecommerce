@@ -3,7 +3,7 @@ import React from 'react'
 const TablaRopa = () => {
   return (
     <section>
-      <h2 className=" pt-10 text-2xl font-semibold text-red-600 mb-4">Tabla de Tallas para Ropa</h2>
+      <h2 className=" pt-10 text-2xl font-semibold text-red-500 mb-4">Tabla de Tallas para Ropa</h2>
       <table className="min-w-full table-auto border-collapse border border-gray-300">
         <thead>
           <tr>

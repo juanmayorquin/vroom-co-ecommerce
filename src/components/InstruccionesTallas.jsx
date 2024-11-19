@@ -4,7 +4,7 @@ import React from 'react'
 const ComoTomarMedidas = () => {
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-red-800 mb-4">Cómo tomar las medidas</h2>
+      <h2 className="text-3xl font-semibold text-red-500 mb-4">Cómo tomar las medidas</h2>
       <p className="text-black-600">
         Para asegurarte de elegir la talla correcta, sigue estas recomendaciones:
       </p>
