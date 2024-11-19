@@ -2,7 +2,7 @@ import React from 'react'
 
 const SobreNosotros = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="pt-20 max-w-4xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Columna izquierda con el texto */}
         <div>
