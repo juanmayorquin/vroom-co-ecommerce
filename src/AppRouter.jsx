@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { RutaPublica } from "./routers";
 import { LayoutGeneral } from "./layouts/conLayout";
 import SinLayout from "./layouts/sinLayout/SinLayout";
-import { GeneralInicio, Pagina404, Login, Register } from "./pages";
+import { GeneralInicio, Pagina404, Login, Register, Perfil } from "./pages";
 
 
 const AppRouter = () => {
@@ -57,6 +57,19 @@ const AppRouter = () => {
           <RutaPublica>
               <LayoutGeneral>
               <Register />
+              </LayoutGeneral>
+          </RutaPublica>
+        }
+
+        
+      />
+
+<Route 
+        path="/perfil" 
+        element={
+          <RutaPublica>
+              <LayoutGeneral>
+              <Perfil />
               </LayoutGeneral>
           </RutaPublica>
         }
