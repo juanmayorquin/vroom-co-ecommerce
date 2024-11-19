@@ -1,9 +1,31 @@
+// Firestore Rules
 rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+  	match /Products/{productId} {
+      allow read: if true;
+      allow write: if request.auth != null && get(/databases/$(database)/documents/Users/$(request.auth.uid)).data.is_admin == true;
     }
+    // Reglas para la colección Users
+    match /Users/{userId} {
+      // Permitir lectura y escritura solo si el usuario está autenticado y el UID coincide
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+
+// Firebase Storage Rules
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Reglas para la carpeta de imágenes de perfil
+    match /profile_pictures/{userId} {
+      // Permitir lectura y escritura solo si el usuario está autenticado y el UID coincide
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Otras posibles reglas (opcional, puedes agregar más si tienes otros recursos)
+    // match /{allPaths=**} {
+    //   allow read, write: if false;  // Asegúrate de bloquear otros recursos si no quieres acceso público
+    // }
   }
 }

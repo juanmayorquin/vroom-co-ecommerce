@@ -12,14 +12,14 @@ function SignInwithGoogle() {
       if (result.user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
-          firstName: user.displayName,
+          name: user.displayName,
           photo: user.photoURL,
-          lastName: "",
+          is_admin: false,
         });
         toast.success("User logged in Successfully", {
           position: "top-center",
         });
-        window.location.href = "/profile";
+        window.location.href = "/";
       }
     });
   }

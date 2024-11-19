@@ -17,4 +17,5 @@ export { default as Preguntas } from './General/Preguntas/PreguntasFrecuentes.js
 
 export { default as About } from './General/About/SobreNosotros.jsx';
 
+export { default as AddProducts } from './General/AddProducts/AddProducts.jsx';
 

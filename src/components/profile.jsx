@@ -46,11 +46,11 @@ function Profile() {
               className="rounded-full shadow-lg mb-4"
               alt="Profile"
             />
-            <h3 className="text-3xl font-bold text-gray-800">Welcome {userDetails.firstName} 🙏🙏</h3>
+            <h3 className="text-3xl font-bold text-gray-800">Welcome, {userDetails.name} 🙏🙏</h3>
           </div>
           <div className="text-lg text-gray-700 mb-6">
             <p>Email: {userDetails.email}</p>
-            <p>First Name: {userDetails.firstName}</p>
+            <p>First Name: {userDetails.name}</p>
           </div>
           <button
             className="bg-red-500 text-white py-2 px-6 rounded-md shadow-md hover:bg-red-600 focus:outline-none"

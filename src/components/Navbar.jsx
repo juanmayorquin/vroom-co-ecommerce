@@ -17,7 +17,7 @@ const Navbar = () => {
           const userDoc = await getDoc(doc(db, "Users", currentUser.uid));
           if (userDoc.exists()) {
             const userData = userDoc.data();
-            setUserName(userData.firstName || "Usuario"); // Si no hay nombre, muestra "Usuario"
+            setUserName(userData.name || "Usuario"); // Si no hay nombre, muestra "Usuario"
           } else {
             console.error("No se encontró el documento del usuario.");
             setUserName("Usuario"); // Nombre genérico si no hay datos
