@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { RutaPublica } from "./routers";
 import { LayoutGeneral } from "./layouts/conLayout";
 import SinLayout from "./layouts/sinLayout/SinLayout";
-import { GeneralInicio, Pagina404, Login, Register, Perfil, Colecciones, Talla, Preguntas } from "./pages";
+import { GeneralInicio, Pagina404, Login, Register, Perfil, Colecciones, Talla, Preguntas, About } from "./pages";
 
 
 const AppRouter = () => {
@@ -115,6 +115,20 @@ const AppRouter = () => {
 
 
       />
+
+<Route
+        path="/about"
+        element={
+          <RutaPublica>
+            <LayoutGeneral>
+              <About />
+            </LayoutGeneral>
+          </RutaPublica>
+        }
+
+
+      />
+
 
 
       <Route path="*" element={<Navigate to="/404" />} />

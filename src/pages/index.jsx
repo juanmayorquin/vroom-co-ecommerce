@@ -15,4 +15,6 @@ export { default as Talla } from './General/Tallas/GuiaTallas.jsx';
 
 export { default as Preguntas } from './General/Preguntas/PreguntasFrecuentes.jsx';
 
+export { default as About } from './General/About/SobreNosotros.jsx';
+
 
