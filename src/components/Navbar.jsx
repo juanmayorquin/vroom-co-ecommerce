@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/credentials";
+import { useCart } from "../context/CartContext";
+import Cart from "./Cart"; // Importa el componente Cart
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState({});
+  const { cartItems } = useCart();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -129,15 +133,35 @@ const Navbar = () => {
               )}
             </div>
 
-            <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
-              <ShoppingCart className="h-6 w-6" />
-            </button>
+            {/* Shopping Cart */}
+            <div className="relative">
+              <button
+                onClick={() => setIsCartOpen(!isCartOpen)}
+                className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md relative"
+              >
+                <ShoppingCart className="h-6 w-6" />
+                {cartItems.length > 0 && (
+                  <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
+                    {cartItems.length}
+                  </span>
+                )}
+              </button>
+              {isCartOpen && <Cart />}
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center space-x-4">
-            <button className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md">
+            <button
+              onClick={() => setIsCartOpen(!isCartOpen)}
+              className="p-2 hover:text-red-500 transition-colors hover:bg-neutral-800 rounded-md relative"
+            >
               <ShoppingCart className="h-6 w-6" />
+              {cartItems.length > 0 && (
+                <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
+                  {cartItems.length}
+                </span>
+              )}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

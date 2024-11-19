@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import Producto from '../../../components/producto';
+import ProductCard from '../../../components/ProductCard';
 
 const PaginaProductos = () => {
     const [products, setProducts] = useState([]);
@@ -28,14 +28,8 @@ const PaginaProductos = () => {
                 <h1 className='text-2xl font-bold mb-4'>Nuestros productos</h1>
                 <div className='flex flex-wrap gap-4'>
                     {products.map(product => (
-                        
-                            <Producto
-                                key={product.id}
-                                img={product.image}
-                                name={product.name}
-                                descripcion={product.descripcion}
-                                price={product.price}
-                            />
+
+                            <ProductCard key={product.id} product={product} />
                         
                     ))}
                 </div>

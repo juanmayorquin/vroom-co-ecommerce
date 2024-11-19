@@ -3,8 +3,20 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { RutaPublica } from "./routers";
 import { LayoutGeneral } from "./layouts/conLayout";
 import SinLayout from "./layouts/sinLayout/SinLayout";
-import { GeneralInicio, Pagina404, Login, Register, Perfil, Colecciones, Talla, Preguntas, About, AddProducts} from "./pages";
-
+import {
+  GeneralInicio,
+  Pagina404,
+  Login,
+  Register,
+  Perfil,
+  Colecciones,
+  Talla,
+  Preguntas,
+  About,
+  AddProducts,
+  Checkout,
+  Success,
+} from "./pages";
 
 const AppRouter = () => {
   return (
@@ -38,8 +50,6 @@ const AppRouter = () => {
             </LayoutGeneral>
           </RutaPublica>
         }
-
-
       />
       <Route
         path="/register"
@@ -50,8 +60,6 @@ const AppRouter = () => {
             </LayoutGeneral>
           </RutaPublica>
         }
-
-
       />
 
       <Route
@@ -63,8 +71,6 @@ const AppRouter = () => {
             </LayoutGeneral>
           </RutaPublica>
         }
-
-
       />
 
       <Route
@@ -76,8 +82,6 @@ const AppRouter = () => {
             </LayoutGeneral>
           </RutaPublica>
         }
-
-
       />
 
       <Route
@@ -89,8 +93,6 @@ const AppRouter = () => {
             </LayoutGeneral>
           </RutaPublica>
         }
-
-
       />
       <Route
         path="/preguntas"
@@ -112,9 +114,8 @@ const AppRouter = () => {
           </RutaPublica>
         }
       />
-      
 
-<Route
+      <Route
         path="/about"
         element={
           <RutaPublica>
@@ -123,11 +124,28 @@ const AppRouter = () => {
             </LayoutGeneral>
           </RutaPublica>
         }
-
-
       />
 
-
+      <Route
+        path="/checkout"
+        element={
+          <RutaPublica>
+            <LayoutGeneral>
+              <Checkout />
+            </LayoutGeneral>
+          </RutaPublica>
+        }
+      />
+      <Route
+        path="/success"
+        element={
+          <RutaPublica>
+            <LayoutGeneral>
+              <Success />
+            </LayoutGeneral>
+          </RutaPublica>
+        }
+      />
 
       <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
