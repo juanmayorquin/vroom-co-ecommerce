@@ -1,18 +1,16 @@
 import React from "react";
 import Producto from "./producto";
 
-const Coleccion = ({ titulo, productos }) => {
+const Coleccion = ({ products }) => {
   return (
     <div className="mb-8 w-full max-w-4xl mx-auto flex flex-col items-center">
-      <h2 className="text-xl font-bold text-gray-700 mb-4">{titulo}</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
-        {productos.map((producto, index) => (
+      <div className="flex flex-wrap w-full">
+        {products.map((product) => (
           <Producto
-            key={index}
-            imagen={producto.imagen}
-            nombre={producto.nombre}
-            descripcion={producto.descripcion}
-            precio={producto.precio}
+            key={product.id}
+            img={product.img}
+            name={product.name}
+            price={product.price}
           />
         ))}
       </div>
