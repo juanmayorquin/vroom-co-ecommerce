@@ -21,7 +21,7 @@ function Register() {
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
-          firstName: fname,
+          name: fname,
           lastName: lname,
           photo: "",
           is_admin: false, // Campo admin con valor predeterminado false
