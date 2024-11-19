@@ -32,7 +32,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-red-500 transition-colors">
+                <a href="/preguntas" className="hover:text-red-500 transition-colors">
                   Preguntas Frecuentes
                 </a>
               </li>

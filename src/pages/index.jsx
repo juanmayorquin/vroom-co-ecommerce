@@ -13,4 +13,6 @@ export { default as Colecciones } from './General/Colecciones/PaginaColecciones.
 
 export { default as Talla } from './General/Tallas/GuiaTallas.jsx';
 
+export { default as Preguntas } from './General/Preguntas/PreguntasFrecuentes.jsx';
+
 
