@@ -3,6 +3,8 @@ import { useCart } from "../../../context/CartContext";
 import { auth, db } from "../../../firebase/credentials";
 import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   const { cartItems, clearCart } = useCart();
@@ -23,8 +25,45 @@ const Checkout = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const validateForm = () => {
+    const { name, email, address, city, phone } = formData;
+
+    // Validaciones
+    if (!name.trim()) {
+      toast.error("El nombre no puede estar vacío.");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Por favor ingresa un correo válido.");
+      return false;
+    }
+
+    if (!address.trim()) {
+      toast.error("La dirección no puede estar vacía.");
+      return false;
+    }
+
+    if (!city.trim()) {
+      toast.error("La ciudad no puede estar vacía.");
+      return false;
+    }
+
+    if (!/^\d{3}$/.test(phone)) {
+      toast.error("El teléfono debe tener exactamente 3 dígitos.");
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return; // Detener si hay errores de validación
+    }
 
     try {
       const order = {
@@ -37,9 +76,11 @@ const Checkout = () => {
 
       await addDoc(collection(db, "Orders"), order);
       clearCart();
+      toast.success("¡Pedido realizado con éxito!");
       navigate("/success"); // Redirige a una página de confirmación
     } catch (error) {
       console.error("Error al crear la orden:", error.message);
+      toast.error("Ocurrió un error al procesar tu pedido.");
     }
   };
 

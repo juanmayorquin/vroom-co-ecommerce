@@ -1,13 +1,17 @@
 import './App.css'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import Routes from './AppRouter'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <>
+      <ToastContainer />
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </>
   )
 }
 
