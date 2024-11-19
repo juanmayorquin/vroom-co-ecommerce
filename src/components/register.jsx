@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { auth, db } from "../firebase/credentials";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";  // Importamos useNavigate
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
+  const navigate = useNavigate();  // Usamos useNavigate
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -28,6 +30,9 @@ function Register() {
       toast.success("User Registered Successfully!!", {
         position: "top-center",
       });
+
+      // Redirigir a la pantalla principal después de un registro exitoso
+      navigate("/");  // Aquí redirigimos a la ruta principal "/"
     } catch (error) {
       console.log(error.message);
       toast.error(error.message, {
