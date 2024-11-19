@@ -12,9 +12,8 @@ function SignInwithGoogle() {
       if (result.user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
-          firstName: user.displayName,
+          name: user.displayName,
           photo: user.photoURL,
-          lastName: "",
         });
         toast.success("User logged in Successfully", {
           position: "top-center",
