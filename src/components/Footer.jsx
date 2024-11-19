@@ -22,17 +22,17 @@ function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="hover:text-red-500 transition-colors">
+                <a href="/" className="hover:text-red-500 transition-colors">
                   Tienda
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-red-500 transition-colors">
+                <a href="/talla" className="hover:text-red-500 transition-colors">
                   Guía de Tallas
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-red-500 transition-colors">
+                <a href="/preguntas" className="hover:text-red-500 transition-colors">
                   Preguntas Frecuentes
                 </a>
               </li>
