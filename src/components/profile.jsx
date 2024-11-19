@@ -88,7 +88,7 @@ function Profile() {
               alt="Profile"
               style={{ width: "150px", height: "150px", objectFit: "cover" }}
             />
-            <h3 className="text-3xl font-bold text-gray-800">Bienvenido, {userDetails.name} 🙏🙏</h3>
+            <h3 className="text-3xl font-bold text-gray-800">Bienvenido, {userDetails.name} 😎</h3>
           </div>
           <div className="text-lg text-gray-700 mb-6">
             <p>Email: {userDetails.email}</p>
