@@ -23,7 +23,7 @@ const PaginaProductos = () => {
     }, []);
 
     return (
-        <section className='py-20 max-w-7xl m-auto'>
+        <section className='pt-20 pb-10 max-w-7xl m-auto'>
             <h1 className='text-2xl font-bold mb-4'>Nuestros productos</h1>
             <div className='flex flex-wrap gap-4'>
                 {products.map(product => (
