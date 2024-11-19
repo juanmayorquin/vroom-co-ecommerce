@@ -13,9 +13,9 @@ function LoginForm() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("User logged in Successfully");
+      console.log("Usuario ingresado exitosamente");
       window.location.href = "/";
-      toast.success("User logged in Successfully", {
+      toast.success("Usuario ingresado exitosamente", {
         position: "top-center",
       });
     } catch (error) {
@@ -30,17 +30,17 @@ function LoginForm() {
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
         <h3 className="text-center text-2xl font-semibold text-gray-700 mb-6">
-          Login
+          Iniciar sesión
         </h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-600 text-sm font-medium mb-1">
-              Email address
+              Dirección de correo electrónico
             </label>
             <input
               type="email"
               className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-              placeholder="Enter email"
+              placeholder="Ingrese el correo electrónico"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -48,12 +48,12 @@ function LoginForm() {
 
           <div className="mb-4">
             <label className="block text-gray-600 text-sm font-medium mb-1">
-              Password
+              Contraseña
             </label>
             <input
               type="password"
               className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
-              placeholder="Enter password"
+              placeholder="Ingrese la contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -62,17 +62,20 @@ function LoginForm() {
           <div className="mb-4">
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+              className="w-full bg-[#e02b0f] hover:bg-[#f20b0b] transition-colors text-white py-2 rounded-md"
             >
-              Submit
+              Enviar
             </button>
           </div>
         </form>
 
         <p className="text-sm text-gray-600 text-center">
-          New user?{" "}
-          <Link to={"/register"} className="text-blue-500 hover:underline">
-            Register Here
+          ¿Nuevo usuario?{" "}
+          <Link
+            to={"/register"}
+            className="text-[#e02b0f] hover:text-[#f20b0b] transition-colors"
+          >
+            Regístrate aquí
           </Link>
         </p>
 
