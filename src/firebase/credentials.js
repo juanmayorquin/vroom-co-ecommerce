@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
+import { getStorage } from "firebase/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,4 +21,5 @@ const firebaseConfig = {
 const appFirebase = initializeApp(firebaseConfig);
 export const auth=getAuth();
 export const db=getFirestore(appFirebase);
+export const storage=getStorage(appFirebase, "gs://vroom-co.firebasestorage.app")
 export default appFirebase;
