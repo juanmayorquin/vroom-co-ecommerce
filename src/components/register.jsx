@@ -24,7 +24,7 @@ function Register() {
           firstName: fname,
           lastName: lname,
           photo: "",
-          admin: false, // Campo admin con valor predeterminado false
+          is_admin: false, // Campo admin con valor predeterminado false
         });
       }
       console.log("¡Usuario registrado exitosamente!");

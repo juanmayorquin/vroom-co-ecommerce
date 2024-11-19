@@ -14,6 +14,7 @@ function SignInwithGoogle() {
           email: user.email,
           name: user.displayName,
           photo: user.photoURL,
+          is_admin: false,
         });
         toast.success("User logged in Successfully", {
           position: "top-center",
