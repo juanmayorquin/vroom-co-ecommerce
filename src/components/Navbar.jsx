@@ -61,9 +61,6 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#new" className="hover:text-red-500 transition-colors">
-              Novedades
-            </a>
             <Link
               to="/colecciones"
               className="hover:text-red-500 transition-colors"
@@ -183,13 +180,6 @@ const Navbar = () => {
               >
                 Colecciones
               </Link>
-              <a
-                href="#new"
-                className="block text-white hover:text-red-500 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Novedades
-              </a>
               <a
                 href="/about"
                 className="block text-white hover:text-red-500 transition-colors"
