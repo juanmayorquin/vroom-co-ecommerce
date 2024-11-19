@@ -2,7 +2,7 @@ import React from "react";
 
 const Producto = ({ img, name, description, price }) => {
   return (
-    <div className="">
+    <div className='border p-4 rounded-md shadow m-auto hover:shadow-lg transition duration-200 min-w-52 h-auto transform hover:scale-105'>
       <img
         src={img}
         alt={name}

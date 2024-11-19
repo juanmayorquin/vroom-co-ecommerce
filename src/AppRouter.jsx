@@ -20,16 +20,6 @@ const AppRouter = () => {
         }
       />
       <Route
-        path="/shop"
-        element={
-          <RutaPublica>
-            <LayoutGeneral>
-              <GeneralInicio />
-            </LayoutGeneral>
-          </RutaPublica>
-        }
-      />
-      <Route
         path="/404"
         element={
           <RutaPublica>

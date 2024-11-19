@@ -22,7 +22,7 @@ const Hero = () => {
           pasión por el motorsport a las calles.
         </p>
         <Link
-          to="/shop"
+          to="/colecciones"
           className="inline-flex items-center px-6 py-3 bg-[#e02b0f] hover:bg-[#f20b0b]  transition-colors rounded-full text-white font-semibold"
         >
           Visítanos
