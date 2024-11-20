@@ -67,9 +67,9 @@ const Navbar = () => {
             >
               Colecciones
             </Link>
-            <a href="/about" className="hover:text-red-500 transition-colors">
+            <Link href="/about" className="hover:text-red-500 transition-colors">
               Sobre nosotros
-            </a>
+            </Link>
 
             {/* User Menu */}
             <div className="relative">
@@ -180,13 +180,13 @@ const Navbar = () => {
               >
                 Colecciones
               </Link>
-              <a
+              <Link
                 href="/about"
                 className="block text-white hover:text-red-500 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sobre nosotros
-              </a>
+              </Link>
             </div>
           </div>
         )}
