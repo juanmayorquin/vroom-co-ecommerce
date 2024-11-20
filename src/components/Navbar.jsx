@@ -67,7 +67,7 @@ const Navbar = () => {
             >
               Colecciones
             </Link>
-            <Link href="/about" className="hover:text-red-500 transition-colors">
+            <Link to="/about" className="hover:text-red-500 transition-colors">
               Sobre nosotros
             </Link>
 
@@ -181,7 +181,7 @@ const Navbar = () => {
                 Colecciones
               </Link>
               <Link
-                href="/about"
+                to="/about"
                 className="block text-white hover:text-red-500 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
